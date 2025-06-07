@@ -1,0 +1,11 @@
+FROM python:3.12-bookworm
+
+RUN apt-get update && apt-get install -y dumb-init && 
+WORKDIR /app
+COPY . /app
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 8192
+ENTRYPOINT ["dumb-init","--"]
+CMD ["uvicorn","app:app","--host","0.0.0.0","--port","8192"]

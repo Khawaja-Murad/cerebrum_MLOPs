@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+onnxruntime-gpu
+numpy
+pillow
+requests
+python-multipart
